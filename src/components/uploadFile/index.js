@@ -16,7 +16,7 @@ const UploadFile = ({ handleTextChange }) => {
     const config = {
       headers: {
         "content-Type": false,
-        "X-Api-Key": "LEuDY/8A/I0ke7ihnaZKVQ==qrPkMjk91S11d5Qg",
+        "X-Api-Key": process.env.API_NINJA_KEY,
       },
     };
     try {
