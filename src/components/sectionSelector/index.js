@@ -23,7 +23,7 @@ const SectionSelector = ({ handleTaskSelect }) => {
     <div class="w-full mt-10">
       <div class="relative right-0">
         <ul
-          className="relative flex flex-wrap p-1 list-none rounded-lg bg-primary-950 border-[3px] border-primary-900  "
+          className="relative flex flex-wrap p-1 list-none rounded-lg bg-primary-950 border-[3px] border-primary-950  "
           data-tabs="tabs"
           role="list"
         >
@@ -34,7 +34,7 @@ const SectionSelector = ({ handleTaskSelect }) => {
                   section?.active
                     ? " bg-paragrapgh text-primary-950"
                     : " bg-primary-950 text-headline"
-                }  z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-md cursor-pointer `}
+                }  z-30 flex items-center justify-center w-full px-0 py-2 mb-0 transition-all ease-in-out border-0 rounded-md cursor-pointer `}
                 active={section?.active}
                 role="tab"
                 aria-selected={section?.active}

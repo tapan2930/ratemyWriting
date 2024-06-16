@@ -5,8 +5,6 @@ import axios from "axios";
 const UploadFile = ({ handleTextChange }) => {
   const [isUploading, setIsUploading] = useState(false);
 
-  console.log("isUploading", isUploading);
-
   function handleSubmit(event) {
     const file = event.target.files[0];
     if (!file) return;
@@ -16,7 +14,7 @@ const UploadFile = ({ handleTextChange }) => {
     const config = {
       headers: {
         "content-Type": false,
-        "X-Api-Key": process.env.API_NINJA_KEY,
+        "X-Api-Key": process.env.NEXT_PUBLIC_API_NINJA_KEY,
       },
     };
     try {
@@ -26,7 +24,7 @@ const UploadFile = ({ handleTextChange }) => {
         const text = response.data?.reduce((str, item) => {
           return str + " " + item.text;
         }, "");
-        handleTextChange(text);
+        handleTextChange("content")(text);
       });
     } catch (err) {
       console.log(err);
@@ -44,7 +42,7 @@ const UploadFile = ({ handleTextChange }) => {
           className="hidden"
         />
         <label
-          className=" self-end align-middle select-none  font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs text-primary-950 py-3 px-6 rounded-lg bg-gradient-to-tr from-secondary-500 to-secondary-400 text-white shadow-md shadow-secondary-500/10 hover:shadow-lg hover:shadow-secondary-500/20 active:opacity-[0.85] flex items-center gap-3 cursor-pointer"
+          className=" self-end align-middle select-none  font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs text-primary-950 py-3 px-6 rounded-lg bg-secondary-500 text-white shadow-md shadow-secondary-500/10 hover:shadow-lg hover:shadow-secondary-500/20 active:opacity-[0.85] flex items-center gap-3 cursor-pointer"
           for="file"
         >
           <svg

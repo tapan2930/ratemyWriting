@@ -5,6 +5,8 @@ import axios from "axios";
 import TeaxtArea from "@/components/textArea";
 import UploadFile from "@/components/uploadFile";
 import SectionSelector from "@/components/sectionSelector";
+import { getMyResult } from "@/apis/getMyResult";
+import ShowResult from "@/components/showResult";
 
 export default function Home() {
   const [text, setText] = useState({
@@ -12,6 +14,8 @@ export default function Home() {
     content: "",
   });
   const [task, setTask] = useState("task_1_general");
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
 
   const handleTextChange = (key) => (value) => {
     setText((prev) => ({ ...prev, [key]: value }));
@@ -22,7 +26,16 @@ export default function Home() {
   };
 
   const handleSubmit = async () => {
-    getMyResult({ text, task });
+    setLoading(true);
+    const res = await getMyResult({ text, task });
+    console.log(res, "dxddd");
+    if (res?.status) {
+      setResult(res?.data);
+    } else {
+      console.log("Error in getting result");
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -43,10 +56,15 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <button className=" mt-10 align-middle select-none  font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs text-primary-950 py-3 px-6 rounded-lg bg-gradient-to-tr from-secondary-500 to-secondary-400 text-white shadow-md shadow-secondary-500/10 hover:shadow-lg hover:shadow-secondary-500/20 active:opacity-[0.85] items-center gap-3 cursor-pointer block w-full">
-          Show my writng score
+        <button
+          disabled={loading}
+          onClick={handleSubmit}
+          className=" mt-10 align-middle select-none  font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs text-primary-950 py-3 px-6 rounded-lg bg-secondary-500 text-white shadow-md shadow-secondary-500/10 hover:shadow-lg hover:shadow-secondary-500/20 active:opacity-[0.85] items-center gap-3 cursor-pointer block w-full"
+        >
+          {loading ? "Loading..." : "Show my writng score"}
         </button>
       </div>
+      <div>{result && <ShowResult result={result} />}</div>
     </main>
   );
 }

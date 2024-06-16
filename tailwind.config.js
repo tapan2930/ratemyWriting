@@ -37,6 +37,7 @@ module.exports = {
       paragrapgh: "#b8c1ec",
       button: "#eebbc3",
       buttonText: "#232946",
+      background: "#0f0e17",
     },
     fontFamily: {
       sans: ["Inter", "sans-serif"],
