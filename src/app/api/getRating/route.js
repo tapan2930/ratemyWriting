@@ -33,28 +33,19 @@ export async function POST(req, res) {
     content: `Paragraph ${index + 1} : ${item}`,
   }));
 
-  console.log("message", [
-    {
-      role: "system",
-      content: promptBasedOnTask,
-    },
-    userTitleMessage,
-    ...userContentMessages,
-  ]);
-
   const completion = await openai.chat.completions.create({
     messages: [
       {
         role: "system",
         content: promptBasedOnTask,
       },
-      userTitleMessage,
-      ...userContentMessages,
       {
-        role: "user",
+        role: "system",
         content:
           "Give me result in the stringyfied json format: with key: 'score' and value: 0-9 and key: 'comment' and value: 'your comment' and key: 'suggestion' and value: 'your suggestion' and key:'paragraph_wise_suggestions",
       },
+      userTitleMessage,
+      ...userContentMessages,
     ],
     model: "gpt-4o",
   });

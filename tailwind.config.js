@@ -1,44 +1,11 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const withMT = require("@material-tailwind/html/utils/withMT");
+module.exports = withMT({
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: {
-      primary: {
-        50: "#f2f5fc",
-        100: "#e2eaf7",
-        200: "#ccdaf1",
-        300: "#a9c2e7",
-        400: "#80a3da",
-        500: "#6285cf",
-        600: "#4e6bc2",
-        700: "#445ab1",
-        800: "#3c4b91",
-        900: "#344174",
-        950: "#232946",
-      },
-      secondary: {
-        50: "#fcf4f4",
-        100: "#fae9eb",
-        200: "#f5d6db",
-        300: "#eebbc3",
-        400: "#e18b9a",
-        500: "#d26178",
-        600: "#bc4261",
-        700: "#9e3250",
-        800: "#852c48",
-        900: "#722941",
-        950: "#3f1220",
-      },
-      headline: "#fffffe",
-      paragrapgh: "#b8c1ec",
-      button: "#eebbc3",
-      buttonText: "#232946",
-      background: "#0f0e17",
-    },
     fontFamily: {
       sans: ["Inter", "sans-serif"],
     },
@@ -47,6 +14,42 @@ module.exports = {
       padding: "2rem",
     },
     extend: {
+      colors: {
+        primary: {
+          DEFAULT: "#FFFFFE",
+          50: "#FFFFFF",
+          100: "#FFFFFF",
+          200: "#FFFFFF",
+          300: "#FFFFFF",
+          400: "#FFFFFF",
+          500: "#FFFFFE",
+          600: "#FFFFC6",
+          700: "#FFFF8E",
+          800: "#FFFF56",
+          900: "#FFFF1E",
+          950: "#FFFF02",
+        },
+        secondary: {
+          DEFAULT: "#E3F6F5",
+          50: "#FFFFFF",
+          100: "#FFFFFF",
+          200: "#FFFFFF",
+          300: "#FFFFFF",
+          400: "#FFFFFF",
+          500: "#E3F6F5",
+          600: "#B9E8E6",
+          700: "#8EDBD7",
+          800: "#64CDC8",
+          900: "#3CBCB5",
+          950: "#36A7A1",
+        },
+        tertiary: "#bae8e8",
+        headline: "#272343",
+        paragrapgh: "#2d334a",
+        button: "#ffd803",
+        buttonText: "#272343",
+        background: "#fffffe",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -55,4 +58,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+});
