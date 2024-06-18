@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Tabs from "../tabs";
 import { useState } from "react";
 
@@ -13,7 +14,7 @@ const ShowResult = ({ result }) => {
           title: key,
           description: Object?.keys(resultData[key]).map((subKey) => {
             return (
-              <div className="  my-2">
+              <div key={subKey} className="  my-2">
                 <span className="text-headline font-semibold capitalize ">
                   {subKey.split("_").join(" ")}:{" "}
                 </span>
@@ -143,8 +144,8 @@ const ShowResult = ({ result }) => {
                   </div>
                 </div>
 
-                <div>
-                  <div class=" max-w-[550px]">
+                <div className=" bg-primary-600 px-6 py-6 shadow-sm rounded-md">
+                  <div class=" max-w-[550px] ">
                     <h3 className=" mt-6 lg:mt-0 text-xl lg:text-2xl font-bold mb-6">
                       What does your score means ?
                     </h3>
@@ -153,15 +154,25 @@ const ShowResult = ({ result }) => {
                         Object.keys(
                           bandDescription[Math.floor(resultData?.score)]
                         ).map((key) => (
-                          <li class="relative flex flex-col gap-2">
+                          <li
+                            key={key.split(" ").join("_")}
+                            class="relative flex flex-col gap-2"
+                          >
                             <div
                               onClick={() => setActiveTab(key)}
-                              class="flex items-center h-3 gap-4 cursor-pointer"
+                              class="flex items-center h-3 gap-4 cursor-pointer justify-between"
                             >
-                              <span class="relative z-[2] w-max flex-shrink-0 overflow-hidden rounded-full bg-gray-900 p-1.5 text-white"></span>
-                              <h6 class="block  text-base antialiased font-semibold leading-none tracking-normal text-headline">
-                                {key}
-                              </h6>
+                              <div className=" flex  h-3 gap-4">
+                                <span class="relative z-[2] w-max flex-shrink-0 overflow-hidden rounded-full bg-gray-900 p-1.5 text-white"></span>
+                                <h6 class="block  text-base antialiased font-semibold leading-none tracking-normal text-headline">
+                                  {key}
+                                </h6>
+                              </div>
+                              <Image
+                                src="/assets/icons/plus.svg"
+                                width={12}
+                                height={12}
+                              />
                             </div>
                             <div class="flex gap-4 pb-8">
                               <span class="flex-shrink-0 invisible h-full pointer-events-none"></span>

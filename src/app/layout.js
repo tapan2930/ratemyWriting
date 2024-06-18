@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
         <NavigationBar />
         {children}
       </body>
-      <script src="node_modules/@material-tailwind/html/scripts/tabs.js"></script>
     </html>
   );
 }

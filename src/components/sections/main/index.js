@@ -41,11 +41,13 @@ export default function Main() {
   return (
     <section className=" min-h-screen my-10">
       <div className="container">
-        <h1 className="font-bold text-3xl text-headline">Let's get started!</h1>
+        <h1 className="font-bold text-3xl text-headline">
+          Let&apos;s get started!
+        </h1>
         <p className="mt-3">
           Enter your content below and get your writing score. You can also
-          upload a file. Also don't forget to add the topic title/question. We
-          don't store your content.
+          upload a file. Also don&apos;t forget to add the topic title/question.
+          We don&apos;t store your content.
         </p>
         <div>
           <SectionSelector handleTaskSelect={handleTaskSelect} />

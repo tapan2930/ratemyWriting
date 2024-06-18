@@ -27,8 +27,8 @@ const SectionSelector = ({ handleTaskSelect }) => {
           data-tabs="tabs"
           role="list"
         >
-          {sections.map((section) => (
-            <li className="z-30 flex-auto text-center">
+          {sections.map((section, index) => (
+            <li key={index} className="z-30 flex-auto text-center">
               <a
                 className={` ${
                   section?.active

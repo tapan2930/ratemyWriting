@@ -31,11 +31,16 @@ const Hero = () => {
             </h1>
             <div className="">
               <ul class="flex flex-col w-full">
-                {heroData.map((data) => (
-                  <li class="relative flex flex-col gap-2">
+                {heroData.map((data, index) => (
+                  <li key={index} class="relative flex flex-col gap-2">
                     <div class="flex items-center gap-4">
                       <span class="relative z-[2] w-max flex-shrink-0 overflow-hidden rounded-full bg-gray-900 p-2 text-white">
-                        <Image src={data.icon} width={20} height={20} />
+                        <Image
+                          src={data.icon}
+                          width={20}
+                          height={20}
+                          alt="icon"
+                        />
                       </span>
                       <h5 class="block font-sans text-lg lg:text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
                         {data.title}
@@ -57,9 +62,10 @@ const Hero = () => {
           <div className=" flex justify-center items-center flex-1">
             <Image
               src="/assets/img/hero-illustration.png"
-              className=" lg:w-[400px] lg:h-[400px"
-              width={250}
-              height={250}
+              className=" lg:w-[400px] lg:h-[400px]"
+              width={450}
+              height={450}
+              alt="hero"
             />
           </div>
         </div>

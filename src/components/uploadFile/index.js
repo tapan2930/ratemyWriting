@@ -57,6 +57,7 @@ const UploadFile = ({ handleTextChange }) => {
               src={"/assets/icons/loader.svg"}
               width={20}
               height={20}
+              alt="loading..."
             />
           ) : (
             <svg
